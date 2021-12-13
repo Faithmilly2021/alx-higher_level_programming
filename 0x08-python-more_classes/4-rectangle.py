@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""Area and Perimeter
-Task:
-    print() and str() should print the rectangle
-    with the character #
-"""
+"""Area and Perimeter"""
 
 
 class Rectangle:
@@ -69,3 +65,9 @@ class Rectangle:
             if i != self.__height - 1:
                 rectangle.append("\n")
         return ("".join(rectangle))
+
+    def __repr__(self):
+        """Returns the string representation of the Rectangle."""
+        rectangle = "Rectangle(" + str(self.__width)
+        rectangle += ", " + str(self.__height) + ")"
+        return (rectangle)
