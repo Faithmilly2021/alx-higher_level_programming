@@ -3,9 +3,15 @@
 
 
 class Rectangle:
-    """Defines the implementation of a rectangle"""
+    """Defines the implementation of a rectangle
+    Attribute:
+        number_of_instances (int): The number of Rectangle instances.
+    """
+
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -71,3 +77,10 @@ class Rectangle:
         rectangle = "Rectangle(" + str(self.__width)
         rectangle += ", " + str(self.__height) + ")"
         return (rectangle)
+
+    def __del__(self):
+        """Print a message for every deletion of
+        the rectangle.
+        """
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
