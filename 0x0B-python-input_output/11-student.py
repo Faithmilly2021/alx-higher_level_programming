@@ -20,7 +20,7 @@ class Student:
     def to_json(self, attrs=None):
         """Retrieves a dictionary representationn of a Student
         If ``attrs`` is a list of strings, only attribute names contained
-        in this list must be retrieved. Else, all attributes
+        in this list must be retrieved. If not indicated, all attributes
         must be retrived.
         Args:
             attrs (list): Indicates specific attributes to represent
@@ -29,3 +29,12 @@ class Student:
                 all(type(ele) == str for ele in attrs)):
             return {i: getattr(self, i) for i in attrs if hasattr(self, i)}
         return self.__dict__
+
+    def reload_from_json(self, json):
+        """Replaces all attributs of the Student instance
+        Args:
+            json (dict): key will be public attribute name
+                         value will be the value of the public attribute
+        """
+        for i, j in json.items():
+            setattr(self, i, j)
