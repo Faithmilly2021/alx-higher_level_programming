@@ -1,9 +1,6 @@
 #!/usr/bin/node
-const args = require('process').argv;
-const argPassed = args.slice(2, 3).toString();
-
-if (argPassed) {
-  console.log(argPassed);
+if (process.argv[2]) {
+  console.log(process.argv[2]);
 } else {
   console.log('No argument');
 }
