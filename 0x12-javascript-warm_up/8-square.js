@@ -1,21 +1,12 @@
 #!/usr/bin/node
-const args = require('process').argv;
-const argPassed = args.slice(2, 3);
-const checkNaN = Number(argPassed);
-
-if (argPassed.length === 0 || isNaN(checkNaN)) {
+const argument = process.argv[2];
+if (isNaN(Number(argument))) {
   console.log('Missing size');
 } else {
-  let tmp = checkNaN;
-  let inner = 0;
-  let s = '';
-
-  while (tmp > 0) {
-    while (inner < checkNaN) {
-      s += 'X';
-      inner++;
+  for (let i = 0; i < Number(argument); i++) {
+    let r = '';
+    for (let j = 0; j < Number(argument); j++) {
+      r += 'X';
     }
-    console.log(s);
-    tmp--;
+    console.log(r);
   }
-}
