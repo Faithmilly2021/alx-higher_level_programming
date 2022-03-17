@@ -1,3 +1,3 @@
 #!/bin/bash
-# body of an url
-curl -sfL "$1" -X GET
+# Display body of  200 status code response with cURL.
+curl -sL "$1"
