@@ -1,14 +1,14 @@
 #!/usr/bin/node
-const args = require('process').argv;
-const inputInt = args.slice(2, 3);
-
-function factorial (a) {
-  if (!a || a === 1) {
-    return (1);
-  }
-  return (a * factorial(a - 1));
+const argument = Number(process.argv[2]);
+if (isNaN(argument)) {
+  console.log(1);
+} else {
+  console.log(factorial(argument));
 }
-
-const a = Number(inputInt);
-
-console.log(factorial(a));
+function factorial (number) {
+  if (number <= 1) {
+    return 1;
+  } else {
+    return number * factorial(number - 1);
+  }
+}
