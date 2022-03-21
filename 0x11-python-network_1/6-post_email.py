@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 """send an email as a post request"""
 
+import sys
 import requests
-from sys import argv
+
 
 if __name__ == "__main__":
-    response = requests.post(argv[1], data={'email': argv[2]})
-    print(response.text)
+    input_url = sys.argv[1]
+    email = {"email": sys.argv[2]}
+
+    value = requests.post(input_url, data=email)
+    print(value.text)
