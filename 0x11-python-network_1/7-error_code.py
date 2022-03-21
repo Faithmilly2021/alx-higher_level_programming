@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """display the body"""
 
+import sys
 import requests
-from sys import argv
+
 
 if __name__ == "__main__":
-    response = requests.get(argv[1])
-    statusCode = response.status_code
-    if statusCode >= 400:
-        print("Error code: " + str(statusCode))
+    input_url = sys.argv[1]
+
+    value = requests.get(input_url)
+    if (value.status_code >= 400):
+        print("Error code: {}".format(value.status_code))
     else:
-        print(response.text)
+        print(value.text)
